@@ -17,7 +17,6 @@ export default function App() {
   if (!loaded) {
     return (
       <React.Fragment>
-        {/* Aap loading indicator ya koi aur component yahan show kar sakte hain */}
         <Text style={{ textAlign: "center", marginTop: 20 }}>
           Loading Fonts...
         </Text>
