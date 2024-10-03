@@ -4,17 +4,25 @@ import { useFonts } from "expo-font";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { StatusBar } from "expo-status-bar";
-import Splash from "./screens/Splash";
+import Splash from "./screens/Splash"; // Ensure ke yeh path sahi hai
 
 const Stack = createStackNavigator();
 
 export default function App() {
   const [loaded] = useFonts({
-    CustomFont: require("./assets/fonts/CustomFont.ttf"),
+    CustomFont: require("./assets/fonts/CustomFont.ttf"), // Ensure ke yeh file maujood hai
   });
 
+  // Loading state
   if (!loaded) {
-    return null;
+    return (
+      <React.Fragment>
+        {/* Aap loading indicator ya koi aur component yahan show kar sakte hain */}
+        <Text style={{ textAlign: "center", marginTop: 20 }}>
+          Loading Fonts...
+        </Text>
+      </React.Fragment>
+    );
   }
 
   return (
