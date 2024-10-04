@@ -1,14 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   ImageBackground,
   SafeAreaView,
   StyleSheet,
   Text,
   View,
+  Pressable,
 } from "react-native";
+import AntDesign from "@expo/vector-icons/AntDesign";
 import { StatusBar } from "expo-status-bar";
+import { useNavigation } from "@react-navigation/native";
 
 const Welcome = () => {
+  const navigation = useNavigation();
+  const [borderColor, setBorderColor] = useState("rgba(149, 149, 149, 1)"); // State to control border color
+
+  const goToHome = () => {
+    // Change the border color to black when pressed
+    setBorderColor("black");
+    // Navigate to Home screen after 1 second
+    setTimeout(() => {
+      navigation.navigate("Home");
+    }, 1000); // 1000 milliseconds = 1 second
+  };
+
   return (
     <SafeAreaView style={styles.mainContainer}>
       <StatusBar style="auto" />
@@ -20,11 +35,24 @@ const Welcome = () => {
         <View style={styles.welcomeContent}>
           <Text style={styles.welcomeHeading}>Welcome</Text>
           <Text style={styles.textLine}>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry.
+            Shop the latest trends and enjoy a seamless shopping experience at
+            your fingertips
           </Text>
+
+          {/* Pressable Circle with Separate Outer Border */}
+          <Pressable onPress={goToHome} style={styles.outerCircleContainer}>
+            <View style={[styles.outerCircle, { borderColor }]}>
+              <View style={styles.innerCircle}>
+                <AntDesign
+                  name="arrowright"
+                  size={70}
+                  color="#fff"
+                  style={styles.nextArrow}
+                />
+              </View>
+            </View>
+          </Pressable>
         </View>
-        <View></View>
       </ImageBackground>
     </SafeAreaView>
   );
@@ -43,7 +71,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   welcomeContent: {
-    // backgroundColor: "red",
     marginTop: "135%",
     width: "90%",
     height: "35%",
@@ -57,6 +84,32 @@ const styles = StyleSheet.create({
   textLine: {
     color: "white",
     fontSize: 17.17,
-    fontFamily: "",
+    textAlign: "center",
+  },
+  outerCircleContainer: {
+    marginTop: "25%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  outerCircle: {
+    width: 72, // Outer circle width (2px larger than inner circle)
+    height: 72, // Outer circle height
+    borderRadius: 34, // Border radius for the outer circle
+    borderWidth: 2, // Border width for outer circle
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  innerCircle: {
+    width: 60, // Inner circle width
+    height: 60, // Inner circle height
+    borderRadius: 30, // Border radius for the inner circle
+    backgroundColor: "#000", // Inner circle background color
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  nextArrow: {
+    color: "#fff",
+    fontSize: 18,
+    fontWeight: "bold",
   },
 });
