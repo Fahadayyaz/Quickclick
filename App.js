@@ -3,6 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import Splash from "./screens/Splash";
 import Welcome from "./screens/Welcome";
+import LoginSignUP from "./screens/LoginSignUP";
 import Home from "./screens/Home";
 import { StatusBar } from "expo-status-bar";
 import { useFonts } from "expo-font"; // Importing useFonts from expo-font
@@ -32,6 +33,7 @@ export default function App() {
       >
         <Stack.Screen name="Splash" component={Splash} />
         <Stack.Screen name="Welcome" component={Welcome} />
+        <Stack.Screen name="LoginSignUP" component={LoginSignUP} />
         <Stack.Screen name="Home" component={Home} />
       </Stack.Navigator>
     </NavigationContainer>
