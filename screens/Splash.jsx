@@ -14,7 +14,7 @@ const Splash = () => {
   useEffect(() => {
     // Navigate to Home after 4 seconds
     const timer = setTimeout(() => {
-      navigation.replace("Home");
+      navigation.replace("Welcome");
     }, 3000);
 
     // Clear the timer if the component unmounts
@@ -30,7 +30,7 @@ const Splash = () => {
         />
         <ActivityIndicator
           size="large"
-          color="rgba(38, 35, 35, 1)"
+          color="#1E1E1E"
           style={styles.loading}
         />
       </View>
