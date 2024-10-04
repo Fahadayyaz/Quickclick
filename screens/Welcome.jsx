@@ -57,6 +57,6 @@ const styles = StyleSheet.create({
   textLine: {
     color: "white",
     fontSize: 17.17,
-    fontFamily:"",
+    fontFamily: "",
   },
 });
