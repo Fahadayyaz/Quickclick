@@ -15,12 +15,12 @@ const Welcome = () => {
   const navigation = useNavigation();
   const [borderColor, setBorderColor] = useState("rgba(149, 149, 149, 1)"); // State to control border color
 
-  const goToHome = () => {
+  const goToLoginSignUP = () => {
     // Change the border color to black when pressed
     setBorderColor("black");
-    // Navigate to Home screen after 1 second
+    // Navigate to LoginSignUP screen after 1 second
     setTimeout(() => {
-      navigation.navigate("Home");
+      navigation.navigate("LoginSignUP");
     }, 1000); // 1000 milliseconds = 1 second
   };
 
@@ -40,7 +40,10 @@ const Welcome = () => {
           </Text>
 
           {/* Pressable Circle with Separate Outer Border */}
-          <Pressable onPress={goToHome} style={styles.outerCircleContainer}>
+          <Pressable
+            onPress={goToLoginSignUP}
+            style={styles.outerCircleContainer}
+          >
             <View style={[styles.outerCircle, { borderColor }]}>
               <View style={styles.innerCircle}>
                 <AntDesign
