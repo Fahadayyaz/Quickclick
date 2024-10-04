@@ -19,7 +19,7 @@ const Welcome = () => {
       >
         <View style={styles.welcomeContent}>
           <Text style={styles.welcomeHeading}>Welcome</Text>
-          <Text>
+          <Text style={styles.textLine}>
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry.
           </Text>
@@ -51,7 +51,12 @@ const styles = StyleSheet.create({
   },
   welcomeHeading: {
     color: "white",
-    fontSize: 24,
-    fontWeight: "bold",
+    fontSize: 29.43,
+    fontFamily: "Inter_ExtraBold",
+  },
+  textLine: {
+    color: "white",
+    fontSize: 17.17,
+    fontFamily:"",
   },
 });
