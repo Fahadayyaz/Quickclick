@@ -1,37 +1,22 @@
-import "react-native-gesture-handler";
+// App.js
 import React from "react";
-import { useFonts } from "expo-font";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { StatusBar } from "expo-status-bar";
-import Splash from "./screens/Splash"; // Ensure ke yeh path sahi hai
+import Splash from "./screens/Splash"; // Ensure this path is correct
+import Home from "./screens/Home"; // Ensure this path is correct
 
+// Create a stack navigator
 const Stack = createStackNavigator();
 
 export default function App() {
-  const [loaded] = useFonts({
-    CustomFont: require("./assets/fonts/CustomFont.ttf"), // Ensure ke yeh file maujood hai
-  });
-
-  // Loading state
-  if (!loaded) {
-    return (
-      <React.Fragment>
-        <Text style={{ textAlign: "center", marginTop: 20 }}>
-          Loading Fonts...
-        </Text>
-      </React.Fragment>
-    );
-  }
-
   return (
     <NavigationContainer>
-      <StatusBar style="auto" />
       <Stack.Navigator
         initialRouteName="Splash"
-        screenOptions={{ headerShown: false }}
+        screenOptions={{ headerShown: false }} // Hides the header for all screens
       >
         <Stack.Screen name="Splash" component={Splash} />
+        <Stack.Screen name="Home" component={Home} />
       </Stack.Navigator>
     </NavigationContainer>
   );
