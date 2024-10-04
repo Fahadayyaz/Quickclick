@@ -1,14 +1,65 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import {
+  SafeAreaView,
+  StyleSheet,
+  View,
+  Image,
+  ActivityIndicator,
+} from "react-native";
+import React, { useEffect } from "react";
+import { useNavigation } from "@react-navigation/native";
 
 const Splash = () => {
+  const navigation = useNavigation();
+
+  useEffect(() => {
+    // Navigate to Home after 4 seconds
+    const timer = setTimeout(() => {
+      navigation.replace("Home");
+    }, 3000);
+
+    // Clear the timer if the component unmounts
+    return () => clearTimeout(timer);
+  }, [navigation]);
+
   return (
-    <View>
-      <Text>Splash</Text>
-    </View>
+    <SafeAreaView style={styles.mainContainer}>
+      <View style={styles.contentContainer}>
+        <Image
+          source={require("./../assets/splash.png")}
+          style={styles.splashImage}
+        />
+        <ActivityIndicator
+          size="large"
+          color="rgba(38, 35, 35, 1)"
+          style={styles.loading}
+        />
+      </View>
+    </SafeAreaView>
   );
 };
 
 export default Splash;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  mainContainer: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center", // Center the content vertically
+  },
+  contentContainer: {
+    width: "100%",
+    height: "100%",
+    alignItems: "center",
+    justifyContent: "center", // Center the content
+  },
+  splashImage: {
+    width: "100%",
+    height: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  loading: {
+    position: "absolute",
+    alignSelf: "center",
+  },
+});
