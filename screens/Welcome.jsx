@@ -18,10 +18,10 @@ const Welcome = () => {
   const goToLoginSignUP = () => {
     // Change the border color to black when pressed
     setBorderColor("black");
-    // Navigate to LoginSignUP screen after 1 second
+    // Navigate to LoginSignUP screen after 0.5 second
     setTimeout(() => {
       navigation.navigate("LoginSignUP");
-    }, 1000); // 1000 milliseconds = 1 second
+    }, 500); // 500 milliseconds = 0.5 second
   };
 
   return (
