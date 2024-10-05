@@ -55,7 +55,7 @@ const LoginSignUP = () => {
         </View>
         <View style={styles.lineContainer}>
           <View style={styles.line} />
-          <Text style={styles.text}>or</Text>
+          <Text style={styles.orText}>OR</Text>
           <View style={styles.line} />
         </View>
       </ImageBackground>
@@ -117,17 +117,20 @@ const styles = StyleSheet.create({
   },
   lineContainer: {
     width: "80%",
+    marginTop: 20,
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: "space-around",
   },
   line: {
+    width: "43%",
     height: 1,
     backgroundColor: "gray",
   },
   orText: {
+    alignSelf: "center",
+    marginTop: -2,
     fontSize: 16,
-    color: "gray",
+    color: "#000",
   },
 });
