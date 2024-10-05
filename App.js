@@ -28,7 +28,7 @@ export default function App() {
     <NavigationContainer>
       <StatusBar style="auto" />
       <Stack.Navigator
-        initialRouteName="Welcome"
+        initialRouteName="Splash"
         screenOptions={{ headerShown: false }}
       >
         <Stack.Screen name="Splash" component={Splash} />
