@@ -59,13 +59,16 @@ const LoginSignUP = () => {
           <Text style={styles.orText}>OR</Text>
           <View style={styles.line} />
         </View>
-        <Pressable style={styles.signUpButton}>
+        <Pressable
+          style={styles.signUpButton}
+          onPress={() => navigation.navigate("SignUp")}
+        >
           <Text style={styles.signUpText}>Sign Up</Text>
         </Pressable>
         <View style={styles.loginPart}>
           <Text style={{ color: "#A8B0AF" }}>Existing account?</Text>
-          <Pressable>
-            <Text style={{ fontWeight: "bold" }}>Login</Text>
+          <Pressable onPress={() => navigation.navigate("Login")}>
+            <Text style={{ fontWeight: "bold", marginLeft: 5 }}>Login</Text>
           </Pressable>
         </View>
       </ImageBackground>
@@ -88,7 +91,7 @@ const styles = StyleSheet.create({
     width: 128,
     height: 84,
     alignSelf: "center",
-    marginTop: "60%",
+    marginTop: "58%",
   },
   heading: {
     marginTop: 20,
@@ -97,10 +100,10 @@ const styles = StyleSheet.create({
   },
   slogan: {
     width: "85%",
+    fontWeight: "medium",
+    fontSize: 14,
     alignSelf: "center",
     textAlign: "center",
-    fontSize: 14,
-    fontWeight: "medium",
     marginTop: 5,
   },
   socialContainer: {
@@ -155,6 +158,8 @@ const styles = StyleSheet.create({
   },
   signUpText: {
     color: "#fff",
+    fontFamily: "PlusJakartaSans_Regular",
+    fontSize: 16,
   },
   loginPart: {
     flexDirection: "row",
