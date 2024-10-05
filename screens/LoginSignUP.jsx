@@ -11,6 +11,7 @@ import {
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { StatusBar } from "expo-status-bar";
 import { useNavigation } from "@react-navigation/native";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const LoginSignUP = () => {
   const navigation = useNavigation();
@@ -33,9 +34,29 @@ const LoginSignUP = () => {
           industry.
         </Text>
         <View style={styles.socialContainer}>
-          <View style={styles.facebookContainer}></View>
-          <View style={styles.googleContainer}></View>
-          <View style={styles.appleContainer}></View>
+          <TouchableOpacity style={styles.socialCircle}>
+            <Image
+              source={require("./../assets/facebookLogo.png")}
+              style={styles.socialLogo}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.socialCircle}>
+            <Image
+              source={require("./../assets/googleLogo.png")}
+              style={styles.socialLogo}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.socialCircle}>
+            <Image
+              source={require("./../assets/appleLogo.png")}
+              style={styles.socialLogo}
+            />
+          </TouchableOpacity>
+        </View>
+        <View style={styles.lineContainer}>
+          <View style={styles.line} />
+          <Text style={styles.text}>or</Text>
+          <View style={styles.line} />
         </View>
       </ImageBackground>
     </SafeAreaView>
@@ -60,7 +81,7 @@ const styles = StyleSheet.create({
     marginTop: "60%",
   },
   heading: {
-    marginTop: 30,
+    marginTop: 20,
     fontSize: 24,
     fontFamily: "Poppins_SemiBold",
   },
@@ -70,14 +91,43 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 14,
     fontWeight: "medium",
-    marginTop: 15,
+    marginTop: 5,
   },
   socialContainer: {
+    width: "50%",
+    height: "10%",
+    marginTop: "10%",
     flexDirection: "row",
     alignSelf: "center",
     justifyContent: "space-between",
+    alignItems: "center",
+    // backgroundColor: "red",
   },
-  facebookContainer: {},
-  googleContainer: {},
-  appleContainer: {},
+  socialCircle: {
+    width: 48,
+    height: 48,
+    borderRadius: 50,
+    borderWidth: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  socialLogo: {
+    width: 48,
+    height: 36,
+  },
+  lineContainer: {
+    width: "80%",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  line: {
+    height: 1,
+    backgroundColor: "gray",
+  },
+  orText: {
+    fontSize: 16,
+    color: "gray",
+  },
 });
