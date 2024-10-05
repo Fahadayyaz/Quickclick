@@ -80,6 +80,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   welcomeHeading: {
+    marginTop: "5%",
     color: "white",
     fontSize: 29.43,
     fontFamily: "Inter_ExtraBold",
@@ -88,9 +89,10 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 17.17,
     textAlign: "center",
+    marginTop: 5,
   },
   outerCircleContainer: {
-    marginTop: "25%",
+    marginTop: "18%",
     justifyContent: "center",
     alignItems: "center",
   },
