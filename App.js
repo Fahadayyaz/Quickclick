@@ -4,6 +4,8 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Splash from "./screens/Splash";
 import Welcome from "./screens/Welcome";
 import LoginSignUP from "./screens/LoginSignUP";
+import SignUp from "./screens/SignUp";
+import Login from "./screens/Login";
 import Home from "./screens/Home";
 import { StatusBar } from "expo-status-bar";
 import { useFonts } from "expo-font"; // Importing useFonts from expo-font
@@ -28,12 +30,14 @@ export default function App() {
     <NavigationContainer>
       <StatusBar style="auto" />
       <Stack.Navigator
-        initialRouteName="LoginSignUP"
+        initialRouteName="Splash"
         screenOptions={{ headerShown: false }}
       >
         <Stack.Screen name="Splash" component={Splash} />
         <Stack.Screen name="Welcome" component={Welcome} />
         <Stack.Screen name="LoginSignUP" component={LoginSignUP} />
+        <Stack.Screen name="SignUp" component={SignUp} />
+        <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Home" component={Home} />
       </Stack.Navigator>
     </NavigationContainer>
