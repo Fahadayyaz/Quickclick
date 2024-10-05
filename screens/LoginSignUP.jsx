@@ -33,6 +33,7 @@ const LoginSignUP = () => {
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry.
         </Text>
+        {/* social buttons are here */}
         <View style={styles.socialContainer}>
           <TouchableOpacity style={styles.socialCircle}>
             <Image
@@ -57,6 +58,15 @@ const LoginSignUP = () => {
           <View style={styles.line} />
           <Text style={styles.orText}>OR</Text>
           <View style={styles.line} />
+        </View>
+        <Pressable style={styles.signUpButton}>
+          <Text style={styles.signUpText}>Sign Up</Text>
+        </Pressable>
+        <View style={styles.loginPart}>
+          <Text style={{ color: "#A8B0AF" }}>Existing account?</Text>
+          <Pressable>
+            <Text style={{ fontWeight: "bold" }}>Login</Text>
+          </Pressable>
         </View>
       </ImageBackground>
     </SafeAreaView>
@@ -96,7 +106,7 @@ const styles = StyleSheet.create({
   socialContainer: {
     width: "50%",
     height: "10%",
-    marginTop: "10%",
+    marginTop: "5%",
     flexDirection: "row",
     alignSelf: "center",
     justifyContent: "space-between",
@@ -110,6 +120,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     justifyContent: "center",
     alignItems: "center",
+    borderColor: "#A8B0AF",
   },
   socialLogo: {
     width: 48,
@@ -117,7 +128,7 @@ const styles = StyleSheet.create({
   },
   lineContainer: {
     width: "80%",
-    marginTop: 20,
+    marginTop: "5%",
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-around",
@@ -125,12 +136,28 @@ const styles = StyleSheet.create({
   line: {
     width: "43%",
     height: 1,
-    backgroundColor: "gray",
+    backgroundColor: "#D0CFCC",
   },
   orText: {
     alignSelf: "center",
     marginTop: -2,
     fontSize: 16,
     color: "#000",
+  },
+  signUpButton: {
+    backgroundColor: "#000",
+    marginTop: "10%",
+    width: "80%",
+    height: 48,
+    borderRadius: 30,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  signUpText: {
+    color: "#fff",
+  },
+  loginPart: {
+    flexDirection: "row",
+    marginTop: "10%",
   },
 });
