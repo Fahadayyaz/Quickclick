@@ -22,58 +22,57 @@ const Login = () => {
   return (
     <SafeAreaView style={styles.mainContainer}>
       <StatusBar style="auto" />
-      <ImageBackground
-        source={require("./../assets/themeBg.png")}
+      <Image
+        source={require("./../assets/themeBg.png")} // Local image path
         style={styles.bgImage}
-      >
-        <View style={styles.contentContainer}>
-          <Pressable
-            style={styles.backButton}
-            onPress={() => navigation.goBack()}
-          >
-            <Ionicons name="chevron-back" size={24} color="black" />
-          </Pressable>
-          <Text style={styles.heading}>Welcome Back!</Text>
+      />
+      <View style={styles.contentContainer}>
+        <Pressable
+          style={styles.backButton}
+          onPress={() => navigation.goBack()}
+        >
+          <Ionicons name="chevron-back" size={24} color="black" />
+        </Pressable>
+        <Text style={styles.heading}>Welcome Back!</Text>
+        <Text
+          style={{
+            marginTop: "8%",
+            width: "80%",
+            fontFamily: "Lato_Bold",
+            fontSize: 14,
+          }}
+        >
+          Yay! You're back! Thanks for shopping with us. We have excited deals
+          and promotions going on, grab your pick now!
+        </Text>
+
+        <Text
+          style={{
+            marginTop: "20%",
+            fontFamily: "Lato_Black",
+            fontSize: 18,
+            textDecorationLine: "underline",
+          }}
+        >
+          LOG IN
+        </Text>
+        <View style={styles.loginContainer}>
           <Text
             style={{
-              marginTop: "8%",
-              width: "80%",
-              fontFamily: "Lato_Bold",
+              fontFamily: "Lato_Black",
               fontSize: 14,
             }}
           >
-            Yay! You're back! Thanks for shopping with us. We have excited deals
-            and promotions going on, grab your pick now!
+            Email address
           </Text>
-
-          <Text
-            style={{
-              marginTop: "20%",
-              fontFamily: "Lato_Black",
-              fontSize: 18,
-              textDecorationLine: "underline",
-            }}
-          >
-            LOG IN
-          </Text>
-          <View style={styles.loginContainer}>
-            <Text
-              style={{
-                fontFamily: "Lato_Black",
-                fontSize: 14,
-              }}
-            >
-              Email address
-            </Text>
-            <TextInput
-              style={[styles.input, { borderColor }]} // Dynamic border color
-              placeholder="Enter text here"
-              onFocus={() => setBorderColor("blue")} // Change border to blue on focus
-              onBlur={() => setBorderColor("gray")} // Change border back to gray on blur
-            />
-          </View>
+          <TextInput
+            style={[styles.input, { borderColor }]} // Dynamic border color
+            placeholder="Enter text here"
+            onFocus={() => setBorderColor("blue")} // Change border to blue on focus
+            onBlur={() => setBorderColor("gray")} // Change border back to gray on blur
+          />
         </View>
-      </ImageBackground>
+      </View>
     </SafeAreaView>
   );
 };
@@ -89,11 +88,12 @@ const styles = StyleSheet.create({
     height: "100%",
     alignSelf: "center",
     marginTop: "10%",
+    position: "absolute",
     // backgroundColor: "red",
   },
   bgImage: {
-    width: "100%",
-    height: "100%",
+    width: 430,
+    height: 407,
   },
   backButton: {
     justifyContent: "center",
