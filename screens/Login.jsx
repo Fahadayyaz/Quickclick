@@ -12,6 +12,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import { useNavigation } from "@react-navigation/native";
+import { ScrollView } from "react-native-gesture-handler";
 
 const Login = () => {
   // navigation below
@@ -36,7 +37,7 @@ const Login = () => {
         <Text style={styles.heading}>Welcome Back!</Text>
         <Text
           style={{
-            marginTop: "8%",
+            marginTop: "10%",
             width: "80%",
             fontFamily: "Lato_Bold",
             fontSize: 14,
@@ -56,7 +57,7 @@ const Login = () => {
         >
           LOG IN
         </Text>
-        <View style={styles.loginContainer}>
+        <ScrollView style={styles.loginContainer}>
           <Text
             style={{
               fontFamily: "Lato_Black",
@@ -71,7 +72,7 @@ const Login = () => {
             onFocus={() => setBorderColor("blue")} // Change border to blue on focus
             onBlur={() => setBorderColor("gray")} // Change border back to gray on blur
           />
-        </View>
+        </ScrollView>
       </View>
     </SafeAreaView>
   );
@@ -83,19 +84,20 @@ const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
   },
+  bgImage: {
+    width: 370,
+    height: 380,
+  },
   contentContainer: {
     width: "90%",
     height: "100%",
     alignSelf: "center",
-    marginTop: "10%",
     position: "absolute",
     // backgroundColor: "red",
   },
-  bgImage: {
-    width: 430,
-    height: 407,
-  },
   backButton: {
+    marginTop: "10%",
+
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#F7F7F9",
@@ -104,14 +106,15 @@ const styles = StyleSheet.create({
     borderRadius: 24,
   },
   heading: {
-    marginTop: "12%",
+    marginTop: "20%",
     fontSize: 24,
     fontFamily: "Lato_Black",
   },
   loginContainer: {
     marginTop: "22%",
-    width: "80%",
+    width: "85%",
     alignSelf: "center",
+    backgroundColor: "red",
   },
   input: {
     height: 40,
