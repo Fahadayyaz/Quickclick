@@ -6,6 +6,7 @@ import Welcome from "./screens/Welcome";
 import LoginSignUP from "./screens/LoginSignUP";
 import SignUp from "./screens/SignUp";
 import Login from "./screens/Login";
+import ForgotPassword from "./screens/ForgotPassword";
 import Home from "./screens/Home";
 import { StatusBar } from "expo-status-bar";
 import { useFonts } from "expo-font"; // Importing useFonts from expo-font
@@ -41,6 +42,7 @@ export default function App() {
         <Stack.Screen name="LoginSignUP" component={LoginSignUP} />
         <Stack.Screen name="SignUp" component={SignUp} />
         <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
         <Stack.Screen name="Home" component={Home} />
       </Stack.Navigator>
     </NavigationContainer>
