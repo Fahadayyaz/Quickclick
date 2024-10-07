@@ -8,19 +8,25 @@ import {
   Image,
   Pressable,
   ScrollView,
+  TouchableOpacity, // Import TouchableOpacity
 } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { StatusBar } from "expo-status-bar";
 import { useNavigation } from "@react-navigation/native";
 
 const Login = () => {
-  // navigation below
   const navigation = useNavigation();
 
   // email and password states
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  // checkbox state here
+  const [isChecked, setIsChecked] = useState(false);
+
+  const handleCheckboxToggle = () => {
+    setIsChecked(!isChecked);
+  };
   // default border color
   const [borderColor, setBorderColor] = useState("#D2D2D2");
   const [passwordBorderColor, setPasswordBorderColor] = useState("#D2D2D2");
@@ -44,28 +50,12 @@ const Login = () => {
           <Ionicons name="chevron-back" size={24} color="black" />
         </Pressable>
         <Text style={styles.heading}>Welcome Back!</Text>
-        <Text
-          style={{
-            marginTop: "10%",
-            width: "80%",
-            fontFamily: "Lato_Bold",
-            fontSize: 14,
-          }}
-        >
+        <Text style={styles.subHeading}>
           Yay! You're back! Thanks for shopping with us. We have excited deals
           and promotions going on, grab your pick now!
         </Text>
 
-        <Text
-          style={{
-            marginTop: "20%",
-            fontFamily: "Lato_Black",
-            fontSize: 18,
-            textDecorationLine: "underline",
-          }}
-        >
-          LOG IN
-        </Text>
+        <Text style={styles.loginText}>LOG IN</Text>
         <ScrollView
           showsVerticalScrollIndicator={false}
           style={styles.loginContainer}
@@ -74,6 +64,7 @@ const Login = () => {
             style={{
               fontFamily: "Lato_Black",
               fontSize: 14,
+              marginTop: 10,
             }}
           >
             Email address
@@ -87,11 +78,11 @@ const Login = () => {
             placeholderTextColor="#D2D2D2"
             keyboardType="email-address"
             textContentType="emailAddress"
-            value={email}
-            onChangeText={(text) => setEmail(text)}
+            value={email} // email value state se bind kar rahe hain
+            onChangeText={(text) => setEmail(text)} // email ko update karte hain jab user type kare
             onFocus={() => {
               setBorderColor("#000000");
-              setTextColor("#303030");
+              setTextColor("#303030"); // Text color ko change karte hain jab user type kare
             }}
             onBlur={() => {
               setBorderColor("#D2D2D2");
@@ -117,8 +108,8 @@ const Login = () => {
             placeholderTextColor="#D2D2D2"
             secureTextEntry={true}
             textContentType="password"
-            value={password}
-            onChangeText={(text) => setPassword(text)}
+            value={password} // password value state se bind kar rahe hain
+            onChangeText={(text) => setPassword(text)} // password ko update karte hain jab user type kare
             onFocus={() => {
               setPasswordBorderColor("#000000");
               setPasswordTextColor("#303030");
@@ -128,12 +119,41 @@ const Login = () => {
               setPasswordTextColor("#303030");
             }}
           />
-          {/* save password section goes here */}
+
+          {/* Save password and checkbox section */}
           <View style={styles.savePasswordSec}>
-            <View style={styles.checkbox}></View>
-            <Text>Save Password</Text>
-            <Pressable>
-              <Text>Forgot Password</Text>
+            {/* Custom checkbox */}
+            <TouchableOpacity
+              style={[
+                styles.checkbox,
+                { backgroundColor: isChecked ? "#fff" : "#fff" },
+              ]}
+              onPress={handleCheckboxToggle}
+            >
+              {isChecked && (
+                <Ionicons name="checkmark" size={20} color="#000" />
+              )}
+            </TouchableOpacity>
+
+            <Text
+              style={{
+                marginLeft: -10,
+                fontFamily: "Lato_Regular",
+                fontSize: 12,
+                width: "50%",
+              }}
+            >
+              {isChecked ? "Password Saved" : "Save Password"}
+            </Text>
+            <Pressable onPress={() => navigation.navigate("ForgotPassword")}>
+              <Text
+                style={{
+                  fontFamily: "Lato_Bold",
+                  fontSize: 12,
+                }}
+              >
+                Forgot Password?
+              </Text>
             </Pressable>
           </View>
         </ScrollView>
@@ -172,10 +192,26 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontFamily: "Lato_Black",
   },
+  subHeading: {
+    marginTop: "10%",
+    width: "80%",
+    fontFamily: "Lato_Bold",
+    fontSize: 14,
+  },
+  loginText: {
+    marginTop: "20%",
+    fontFamily: "Lato_Black",
+    fontSize: 18,
+    textDecorationLine: "underline",
+  },
   loginContainer: {
     marginTop: "10%",
     width: "85%",
     alignSelf: "center",
+  },
+  inputLabel: {
+    fontFamily: "Lato_Black",
+    fontSize: 14,
   },
   input: {
     marginTop: 10,
@@ -183,9 +219,26 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     padding: 10,
     borderRadius: 5,
+    borderColor: "#D2D2D2",
+    color: "#303030",
   },
   savePasswordSec: {
+    justifyContent: "space-between",
     flexDirection: "row",
+    alignItems: "center",
+    marginVertical: 20,
+  },
+  checkboxContainer: {
+    flexDirection: "row",
+    marginBottom: 20,
+  },
+  checkbox: {
+    width: 24,
+    height: 24,
     justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 5,
+    borderColor: "#D2D2D2",
+    borderWidth: 1,
   },
 });
