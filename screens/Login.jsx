@@ -28,6 +28,11 @@ const Login = () => {
           >
             <Ionicons name="chevron-back" size={24} color="black" />
           </Pressable>
+          <Text style={styles.heading}>Welcome Back!</Text>
+          <Text style={{ width: "80%" }}>
+            Yay! You're back! Thanks for shopping with us. We have excited deals
+            and promotions going on, grab your pick now!
+          </Text>
         </View>
       </ImageBackground>
     </SafeAreaView>
@@ -58,5 +63,8 @@ const styles = StyleSheet.create({
     width: 44,
     height: 44,
     borderRadius: 24,
+  },
+  heading: {
+    fontSize: 24,
   },
 });
