@@ -66,7 +66,10 @@ const Login = () => {
         >
           LOG IN
         </Text>
-        <ScrollView style={styles.loginContainer}>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          style={styles.loginContainer}
+        >
           <Text
             style={{
               fontFamily: "Lato_Black",
@@ -125,6 +128,14 @@ const Login = () => {
               setPasswordTextColor("#303030");
             }}
           />
+          {/* save password section goes here */}
+          <View style={styles.savePasswordSec}>
+            <View style={styles.checkbox}></View>
+            <Text>Save Password</Text>
+            <Pressable>
+              <Text>Forgot Password</Text>
+            </Pressable>
+          </View>
         </ScrollView>
       </View>
     </SafeAreaView>
@@ -139,7 +150,7 @@ const styles = StyleSheet.create({
   },
   bgImage: {
     width: 370,
-    height: 380,
+    height: 350,
   },
   contentContainer: {
     width: "90%",
@@ -157,12 +168,12 @@ const styles = StyleSheet.create({
     borderRadius: 24,
   },
   heading: {
-    marginTop: "20%",
+    marginTop: "15%",
     fontSize: 24,
     fontFamily: "Lato_Black",
   },
   loginContainer: {
-    marginTop: "22%",
+    marginTop: "10%",
     width: "85%",
     alignSelf: "center",
   },
@@ -172,5 +183,9 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     padding: 10,
     borderRadius: 5,
+  },
+  savePasswordSec: {
+    flexDirection: "row",
+    justifyContent: "center",
   },
 });
