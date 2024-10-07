@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   TextInput,
   SafeAreaView,
@@ -5,26 +6,34 @@ import {
   Text,
   View,
   Image,
-  ImageBackground,
   Pressable,
+  ScrollView,
 } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import { useNavigation } from "@react-navigation/native";
-import { ScrollView } from "react-native-gesture-handler";
 
 const Login = () => {
   // navigation below
   const navigation = useNavigation();
 
+  // email and password states
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   // default border color
-  const [borderColor, setBorderColor] = useState("gray");
+  const [borderColor, setBorderColor] = useState("#D2D2D2");
+  const [passwordBorderColor, setPasswordBorderColor] = useState("#D2D2D2");
+
+  // default text color
+  const [textColor, setTextColor] = useState("#D2D2D2");
+  const [passwordTextColor, setPasswordTextColor] = useState("#D2D2D2");
+
   return (
     <SafeAreaView style={styles.mainContainer}>
       <StatusBar style="auto" />
       <Image
-        source={require("./../assets/themeBg.png")} // Local image path
+        source={require("./../assets/themeBg.png")}
         style={styles.bgImage}
       />
       <View style={styles.contentContainer}>
@@ -67,10 +76,54 @@ const Login = () => {
             Email address
           </Text>
           <TextInput
-            style={[styles.input, { borderColor }]} // Dynamic border color
-            placeholder="Enter text here"
-            onFocus={() => setBorderColor("blue")} // Change border to blue on focus
-            onBlur={() => setBorderColor("gray")} // Change border back to gray on blur
+            style={[
+              styles.input,
+              { borderColor: borderColor, color: textColor },
+            ]}
+            placeholder="Enter email here"
+            placeholderTextColor="#D2D2D2"
+            keyboardType="email-address"
+            textContentType="emailAddress"
+            value={email}
+            onChangeText={(text) => setEmail(text)}
+            onFocus={() => {
+              setBorderColor("#000000");
+              setTextColor("#303030");
+            }}
+            onBlur={() => {
+              setBorderColor("#D2D2D2");
+              setTextColor("#303030");
+            }}
+          />
+
+          <Text
+            style={{
+              fontFamily: "Lato_Black",
+              fontSize: 14,
+              marginTop: 10,
+            }}
+          >
+            Password
+          </Text>
+          <TextInput
+            style={[
+              styles.input,
+              { borderColor: passwordBorderColor, color: passwordTextColor },
+            ]}
+            placeholder="Enter password"
+            placeholderTextColor="#D2D2D2"
+            secureTextEntry={true}
+            textContentType="password"
+            value={password}
+            onChangeText={(text) => setPassword(text)}
+            onFocus={() => {
+              setPasswordBorderColor("#000000");
+              setPasswordTextColor("#303030");
+            }}
+            onBlur={() => {
+              setPasswordBorderColor("#D2D2D2");
+              setPasswordTextColor("#303030");
+            }}
           />
         </ScrollView>
       </View>
@@ -93,11 +146,9 @@ const styles = StyleSheet.create({
     height: "100%",
     alignSelf: "center",
     position: "absolute",
-    // backgroundColor: "red",
   },
   backButton: {
     marginTop: "10%",
-
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#F7F7F9",
@@ -114,10 +165,10 @@ const styles = StyleSheet.create({
     marginTop: "22%",
     width: "85%",
     alignSelf: "center",
-    backgroundColor: "red",
   },
   input: {
-    height: 40,
+    marginTop: 10,
+    height: 50,
     borderWidth: 2,
     padding: 10,
     borderRadius: 5,
