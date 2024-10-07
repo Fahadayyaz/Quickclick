@@ -20,6 +20,8 @@ export default function App() {
     PlusJakartaSans_Medium: require("./assets/fonts/Inter_ExtraBold.ttf"),
     PlusJakartaSans_Bold: require("./assets/fonts/Inter_ExtraBold.ttf"),
     Inter_ExtraBold: require("./assets/fonts/Inter_ExtraBold.ttf"),
+    Lato_Black: require("./assets/fonts/Lato_Black.ttf"),
+    Lato_Bold: require("./assets/fonts/Lato_Bold.ttf"),
   });
 
   if (!loaded) {
