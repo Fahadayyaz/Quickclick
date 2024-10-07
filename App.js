@@ -22,6 +22,7 @@ export default function App() {
     Inter_ExtraBold: require("./assets/fonts/Inter_ExtraBold.ttf"),
     Lato_Black: require("./assets/fonts/Lato_Black.ttf"),
     Lato_Bold: require("./assets/fonts/Lato_Bold.ttf"),
+    Lato_Regular: require("./assets/fonts/Lato_Regular.ttf"),
   });
 
   if (!loaded) {
